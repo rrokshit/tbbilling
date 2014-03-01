@@ -1,0 +1,18 @@
+div.bg{
+    
+    background-image: url('/ticketing/cheque_layout/mapImage_1362500330_JKuJrO.jpgmaybank-good.jpg');
+    width:840px;
+    height:420px;
+}
+/*div.bayar{
+    top:149px; left:112px; position: relative; font-size:18px; width:540px;
+}*/
+div.bayar{
+    font-size:16px; width:540px; padding-top: 120px; padding-left: 90px;
+}
+div.amountInwords{
+    font-size:18px; word-wrap:break;   padding-top: 34px; padding-left: 126px; width: 400px; text-transform:capitalize;display:table-cell;
+}
+div.amount{
+    font-size:20px; word-wrap:break; padding-left: 27px; padding-top: 32px; width: 100px;display:table-cell;
+}
