@@ -27,11 +27,11 @@ class MealVoucherController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				//'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','index','view','delete','admin','pdf'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -54,6 +54,16 @@ class MealVoucherController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
+        public function actionPdf($id)
+	{
+		$mPDF1 = Yii::app()->ePdf->mpdf();
+                $mPDF1 = Yii::app()->ePdf->mpdf('', 'A4', '', '', '5', '5', '5', '5');
+
+                $mPDF1->WriteHTML($this->render('view', array(
+                            'model' => $this->loadModel($id),
+                                ), true));
+                $mPDF1->Output();
+	}
 
 	/**
 	 * Creates a new model.
@@ -69,8 +79,9 @@ class MealVoucherController extends Controller
 		if(isset($_POST['MealVoucher']))
 		{
 			$model->attributes=$_POST['MealVoucher'];
+                        $model->date = date("Y-m-d",strtotime($model->date));
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->mealVoucherId));
+				$this->redirect(array('admin','msg'=>'Meal Voucher Generated Successfully.'));
 		}
 
 		$this->render('create',array(
@@ -93,8 +104,9 @@ class MealVoucherController extends Controller
 		if(isset($_POST['MealVoucher']))
 		{
 			$model->attributes=$_POST['MealVoucher'];
+                        $model->date = date("Y-m-d",strtotime($model->date));
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->mealVoucherId));
+				$this->redirect(array('admin','msg'=>'Meal Voucher Generated Successfully.'));
 		}
 
 		$this->render('update',array(

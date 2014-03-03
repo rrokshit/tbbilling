@@ -23,6 +23,9 @@
     <div class="section_content">
         <!--[if !IE]>start section content top<![endif]-->
         <div class="sct">
+            <?php if (isset($_GET['msg']) && $_GET['msg'] != '') { ?>
+                <br><div class="msg"><?php echo $_GET['msg'] ?></div>
+            <?php } ?>
             <div class="sct_left">
                 <div class="sct_right">
                     <div class="sct_left">
@@ -36,18 +39,27 @@
                                 'columns' => array(
                                     'voucherCode',
                                     array(
-                                      'name'=>'date',
-                                      'value'=>'date("d-m-Y",strtotime($data->date))',
+                                        'name' => 'date',
+                                        'value' => 'date("d-m-Y",strtotime($data->date))',
                                     ),
                                     'agencyName',
                                     'groupFitName',
                                     'numberOfPerson',
-                                    
-                                      'hotelRestaurant',
-                                      'meal',
-                                     
+                                    'hotelRestaurant',
+                                    'meal',
                                     array(
                                         'class' => 'CButtonColumn',
+                                        'template'=>'{view}{pdf}{update}{delete}',
+                                        'buttons' => array(
+                                            'view' => array(
+                                                'options' => array('target' => '_blank'),
+                                            ),
+                                            'pdf' => array(
+                                                'url' => 'Yii::app()->createUrl("mealVoucher/pdf",array(id=>$data->mealVoucherId))',
+                                                'imageUrl' => Yii::app()->request->baseUrl . '/images/pdf.png',
+                                                'options' => array('style' => 'text-align:center', 'target' => '_blank'),
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ));

@@ -73,9 +73,9 @@
                                                     <?php echo $form->labelEx($model, 'date'); ?>
                                                     <?php
                                                     if (isset($_GET['id']))
-                                                        $dd = date("d-m-y", strtotime($model->date));
+                                                        $dd = date("d-m-Y", strtotime($model->date));
                                                     else
-                                                        $dd = date("d-m-y");
+                                                        $dd = date("d-m-Y");
                                                     ?>
                                                     <div class="inputs">
                                                         <span class="input_wrapper"><?php echo $form->textField($model, 'date', array('class' => 'text', 'value' => $dd)); ?></span>

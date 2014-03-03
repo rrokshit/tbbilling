@@ -128,7 +128,7 @@ date_default_timezone_set('Asia/Kuala_Lumpur')
                             }
                             ?>
 
-
+                                <?php /*?>
                         <!--<li><a href="<?php echo $this->createUrl('/management') ?>" <?php if (Yii::app()->controller->id == 'management' || Yii::app()->controller->id == 'management' || Yii::app()->controller->id == 'company' || Yii::app()->controller->id == 'agents' || Yii::app()->controller->id == 'sectors' || Yii::app()->controller->id == 'carriers' || Yii::app()->controller->id == 'prices' || Yii::app()->controller->id == 'paymentTerms' || Yii::app()->controller->id == 'banks') {
                                 echo "class='selected'";
                             } ?>><span><span>Management</span></span></a></li>
@@ -145,6 +145,7 @@ date_default_timezone_set('Asia/Kuala_Lumpur')
                         <li><a href="#"><span><span>User Accounts</span></span></a></li>
                         <li><a href="#"><span><span>SEO</span></span></a></li>
                         <li class="last"><a href="#"><span><span>Static Pages</span></span></a></li>-->
+                                <?php */?>
                         </ul>
                     </div>
 
@@ -257,6 +258,7 @@ echo CalenderController::generate_calendar(date('Y', $time), date('n', $time), N
                                                         <li><a href="<?php echo $this->createUrl('/bill') ?>">Bill</a></li>
                                                         <li><a href="<?php echo $this->createUrl('/bill/chkbill') ?>">Check Bill</a></li>
                                                         <li><a href="<?php echo $this->createUrl('/voucher') ?>">Voucher</a></li>
+                                                        <li><a href="<?php echo $this->createUrl('/mealVoucher') ?>">Meal Voucher</a></li>
                                                         
 
                                                     </ul>

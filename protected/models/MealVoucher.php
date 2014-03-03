@@ -40,10 +40,11 @@ class MealVoucher extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('voucherCode, date, agencyName, groupFitName, numberOfPerson, hotelRestaurant, meal', 'required'),
+			array('voucherCode, date', 'required'),
 			array('numberOfPerson', 'numerical', 'integerOnly'=>true),
 			array('voucherCode, meal', 'length', 'max'=>50),
 			array('agencyName, groupFitName, hotelRestaurant', 'length', 'max'=>100),
+                        array('agencyName,groupFitName, numberOfPerson, hotelRestaurant, meal','safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('mealVoucherId, voucherCode, date, agencyName, groupFitName, numberOfPerson, hotelRestaurant, meal', 'safe', 'on'=>'search'),
@@ -71,9 +72,9 @@ class MealVoucher extends CActiveRecord
 			'voucherCode' => 'Voucher Code',
 			'date' => 'Date',
 			'agencyName' => 'Agency Name',
-			'groupFitName' => 'Group Fit Name',
-			'numberOfPerson' => 'Number Of Person',
-			'hotelRestaurant' => 'Hotel Restaurant',
+			'groupFitName' => 'Group Name',
+			'numberOfPerson' => 'No. Of Person',
+			'hotelRestaurant' => 'Hotel/Restaurant',
 			'meal' => 'Meal',
 		);
 	}
